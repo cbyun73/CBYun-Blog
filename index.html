@@ -1,0 +1,14 @@
+---
+layout: home
+title: Welcome to CBYun-Blog
+---
+
+<h2>👋 Welcome to CBYun-Blog</h2>
+<p>This blog is powered by GitHub Pages and ChatGPT.</p>
+
+<h3>📝 Recent Posts</h3>
+<ul>
+  {% for post in site.posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
