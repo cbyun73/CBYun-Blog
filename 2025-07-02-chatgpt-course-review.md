@@ -1,4 +1,4 @@
-_posts/2025-07-02-chatgpt-course-review-2.md
+_posts/2025-07-02-chatgpt-course-review.md
 ---
 layout: post
 title: "[패스트캠퍼스] ChatGPT로 10분만에 일잘러 되기 : 기초부터 실무까지 완전 정복 강의 수강 후기"
