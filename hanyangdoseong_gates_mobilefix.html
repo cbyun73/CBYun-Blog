@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hanyangdoseong Wall Map (Mobile Fixed)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+    .leaflet-tooltip {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([37.57, 126.98], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  const latlngs = [
+    [37.5925, 126.9671],  // 창의문
+    [37.5955, 126.9855],  // 숙정문
+    [37.5865, 127.0055],  // 혜화문
+    [37.5702, 127.0095],  // 흥인지문
+    [37.5585, 126.9753],  // 숭례문
+    [37.5650, 126.9606],  // 소의문
+    [37.5925, 126.9671]   // 연결
+  ];
+
+  L.polyline(latlngs, {color: 'red', weight: 4}).addTo(map);
+
+  const gates = {
+    "창의문": [37.5925, 126.9671],
+    "숙정문": [37.5955, 126.9855],
+    "혜화문": [37.5865, 127.0055],
+    "흥인지문": [37.5702, 127.0095],
+    "숭례문": [37.5585, 126.9753],
+    "소의문": [37.5650, 126.9606]
+  };
+
+  for (const name in gates) {
+    const marker = L.circleMarker(gates[name], {
+      radius: 6,
+      color: "black",
+      fillColor: "white",
+      fillOpacity: 1
+    }).addTo(map);
+    marker.bindTooltip(name, {permanent: true, direction: 'top', offset: [0, -8]});
+  }
+</script>
+</body>
+</html>
